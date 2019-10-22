@@ -1,7 +1,9 @@
 <template>
     <div id="app">
-        <MainHeader></MainHeader>
-        <router-view/>
+<!--            <MainHeader></MainHeader>-->
+<!--            <MainHeader style="margin-top: 100px"></MainHeader>-->
+            <router-view/>
+            <div style="margin-top: 100px"></div>
     </div>
 </template>
 
@@ -15,7 +17,12 @@
     }
 
     body {
-        background-color: whitesmoke;
+        /*background-color: whitesmoke;*/
+        background-image: url('../public/img/bg-img-cloud01-black-opa.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: left bottom;
     }
 
     #app {
@@ -24,6 +31,8 @@
         -moz-osx-font-smoothing: grayscale;
         text-align: center;
         color: #2c3e50;
+
+
     }
 
     #nav {
@@ -41,11 +50,11 @@
 </style>
 
 <script>
-    import MainHeader from "./components/MainHeader";
+    // import MainHeader from "./components/MainHeader";
 
     export default {
         components: {
-            MainHeader,
+
         },
 
     }
