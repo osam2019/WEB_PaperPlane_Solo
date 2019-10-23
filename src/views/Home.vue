@@ -2,26 +2,27 @@
     <div id="Home">
         <MainHeader></MainHeader>
 <!--        <ToolHeader></ToolHeader>-->
-        <div id="test"></div>
+        <div id="header-cover"></div>
         <div class="grid">
-            <div></div>
+            <div ></div>
             <PostListView></PostListView>
-            <div></div>
+            <div ></div>
         </div>
     </div>
 </template>
 
 <style scoped>
-    #test {
+    #header-cover {
         position: fixed;
         margin-top: 100px;
-        height: 160px;
+        height: 120px;
         width: 100vw;
         background-image: url('../../public/img/bg-img-cloud01-black-opa.jpg');
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
         background-position: left bottom;
+        opacity: 0.95;
     }
 
     .grid {
@@ -35,6 +36,9 @@
     .grid div {
         min-height: 100vh;
         border: 0.1px solid red;
+        margin-top: 100px;
+        width: 100%;
+        height: 100vh;
     }
 
 </style>
@@ -42,7 +46,7 @@
 <script>
     // @ is an alias to /src
     import MainHeader from "../components/MainHeader";
-    import PostListView from '../components/PostListView';
+    import PostListView from './Home/PostListView';
     import ToolHeader from "../components/ToolHeader";
 
     export default {

@@ -6,7 +6,7 @@
 </template>
 
 <script>
-    import PostListView from "./PostListView";
+    import PostListView from "../views/Home/PostListView";
 
     export default {
         name: 'ToolHeader',

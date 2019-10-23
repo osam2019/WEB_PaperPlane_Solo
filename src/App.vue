@@ -1,13 +1,16 @@
 <template>
     <div id="app">
-<!--            <MainHeader></MainHeader>-->
-<!--            <MainHeader style="margin-top: 100px"></MainHeader>-->
-            <router-view/>
-            <div style="margin-top: 100px"></div>
+        <!--            <MainHeader></MainHeader>-->
+        <!--            <MainHeader style="margin-top: 100px"></MainHeader>-->
+        <router-view/>
+        <div style="margin-top: 100px"></div>
     </div>
 </template>
 
 <style>
+
+    @import url(//fonts.googleapis.com/earlyaccess/kopubbatang.css);
+
 
     body, html {
         padding: 0;
@@ -26,7 +29,10 @@
     }
 
     #app {
-        font-family: 'Avenir', Helvetica, Arial, sans-serif;
+        /*font-family: 'Avenir', Helvetica, Arial, sans-serif;*/
+        font-family: 'Jeju Gothic', sans-serif;
+        font-size: 12px;
+        line-height:1.8em;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         text-align: center;
@@ -52,10 +58,9 @@
 <script>
     // import MainHeader from "./components/MainHeader";
 
-    export default {
-        components: {
 
-        },
+    export default {
+        components: {},
 
     }
 </script>
