@@ -30,7 +30,6 @@
         position:fixed;
         width: 100vw;
         height: 150px;
-        /*background-color: antiquewhite;*/
     }
 
 

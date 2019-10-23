@@ -1,12 +1,19 @@
 <template>
     <div id="Home">
         <MainHeader></MainHeader>
-<!--        <ToolHeader></ToolHeader>-->
         <div id="header-cover"></div>
+
+        <LeftView>
+        </LeftView>
+
+        <RightView>
+
+        </RightView>
+
         <div class="grid">
-            <div ></div>
-            <PostListView></PostListView>
-            <div ></div>
+            <div></div>
+            <PostListView class="grid-child"></PostListView>
+            <div></div>
         </div>
     </div>
 </template>
@@ -14,9 +21,10 @@
 <style scoped>
     #header-cover {
         position: fixed;
+        left: 25%;
         margin-top: 100px;
         height: 120px;
-        width: 100vw;
+        width: 50vW;
         background-image: url('../../public/img/bg-img-cloud01-black-opa.jpg');
         background-repeat: no-repeat;
         background-attachment: fixed;
@@ -33,7 +41,7 @@
         grid-row-gap: 0px;
     }
 
-    .grid div {
+    .grid .grid-child {
         min-height: 100vh;
         border: 0.1px solid red;
         margin-top: 100px;
@@ -48,12 +56,16 @@
     import MainHeader from "../components/MainHeader";
     import PostListView from './Home/PostListView';
     import ToolHeader from "../components/ToolHeader";
+    import LeftView from "./Home/LeftView";
+    import RightView from "./Home/RightView";
 
     export default {
         name: 'home',
         components: {
+            RightView,
             ToolHeader,
             MainHeader,
+            LeftView,
             PostListView,
         }
     }

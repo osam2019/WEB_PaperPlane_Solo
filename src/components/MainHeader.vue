@@ -1,9 +1,12 @@
 <template>
-
     <div id="MainHeader">
         <div>
-            <img id="main-logo" src="../../public/img/logo_with_font_white.png"/>
-            <i class="el-icon-menu" width="300px" height="300px"></i>
+            <router-link to="/">
+                <img id="main-logo" src="../../public/img/logo_with_font_white.png"/>
+            </router-link>
+            <router-link to="/auth">
+                <i class="el-icon-menu" width="300px" height="300px" ></i>
+            </router-link>
         </div>
     </div>
 </template>
@@ -25,6 +28,7 @@
 
     #MainHeader {
         position:fixed;
+        top:0;
         width: 100vw;
         height: 100px;
         background-color: #1e1e1e;
@@ -32,7 +36,7 @@
 
     #main-logo {
         width: auto;
-        height: 100%;
+        height: 6rem;
     }
 
     #main-logo:hover {

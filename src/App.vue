@@ -1,7 +1,5 @@
 <template>
     <div id="app">
-        <!--            <MainHeader></MainHeader>-->
-        <!--            <MainHeader style="margin-top: 100px"></MainHeader>-->
         <router-view/>
         <div style="margin-top: 100px"></div>
     </div>
@@ -37,7 +35,6 @@
         -moz-osx-font-smoothing: grayscale;
         text-align: center;
         color: #2c3e50;
-
 
     }
 
