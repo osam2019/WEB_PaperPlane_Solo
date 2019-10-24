@@ -6,8 +6,8 @@
 
 ## 배포자 및 개발자 정보
 
-**소속/계급:**  해군 해병대사령부 2사단 8연대 / 상병
-**이름:** 이재영
+>**소속/계급:**  해군 해병대사령부 2사단 8연대 / 상병
+>**이름:** 이재영
 **이메일:** jaeleeps@gmail.com
 
 ## 아이디어 개요
@@ -44,7 +44,7 @@ Make sure you have installed all of the following prerequisites on your developm
 ## 설치 안내 (Installation Process)
 ### Cloning the Github Repository
 
-    $ git
+    $ git clone https://github.com/osam2019/WEB_TakeIt_Solo.git
 
 ## 사용법 (Getting Started)
 ### Project setup
@@ -57,10 +57,8 @@ Make sure you have installed all of the following prerequisites on your developm
     npm run build
 
 ## 파일 정보 및 목록 (File Manifest)
-Make sure you have installed all of the following prerequisites on your development machine:
 
--   Git -  [Download & Install Git](https://git-scm.com/downloads). OSX and Linux machines typically have this already installed.
--   Node.js -  [Download & Install Node.js](https://nodejs.org/en/download/)  and the npm package manager. If you encounter any problems, you can also use this  [GitHub Gist](https://gist.github.com/isaacs/579814)  to install Node.js.
+
 ## 저작권 및 사용권 정보 (Copyright / End User License)
  Copyright (C) 2019 Jaeyoung Lee <jaeleeps@gmail.com>
 
