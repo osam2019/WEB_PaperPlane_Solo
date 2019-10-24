@@ -13,9 +13,44 @@
     export default {
         name: "PostList",
         computed: {
-            posts() {
-                return this.$store.state.postsVuex.items;
+            selectedCategory(){
+                return this.$store.state.postsVuex.selectedCategory;
             },
+            posts() {
+                // console.log("STEP 0 ", this.selectedCategory);
+                if(this.selectedCategory=="all") {
+                    // console.log("@@@@@1@@@@", this.$store.getters.getPosts);
+                    return this.$store.getters.getPosts;
+                }
+
+                else if(this.selectedCategory=="cat_random") {
+                    // console.log("STEP 1");
+                    return this.$store.getters.getRandomPosts;
+                }
+
+                else if(this.selectedCategory=="cat_plane") {
+                    // console.log("STEP 1");
+                    return this.$store.getters.getPlanePosts;
+                }
+
+                else if(this.selectedCategory=="cat_info") {
+                    // console.log("STEP 1");
+                    return this.$store.getters.getInfoPosts;
+                }
+
+                else if(this.selectedCategory=="cat_idea") {
+                    // console.log("STEP 1");
+                    return this.$store.getters.getIdeaPosts;
+                }
+
+                else if(this.selectedCategory=="cat_todo") {
+                    // console.log("STEP 1");
+                    return this.$store.getters.getTodoPosts;
+                } else {
+                    return this.$store.getters.getPosts;
+                }
+
+            }
         },
 
         mounted() {
@@ -42,10 +77,6 @@
 
         display: flex;
         flex-direction: column-reverse;
-    }
-
-    #PostList{
-        /*border: 2px solid yellow ;*/
     }
 
 </style>

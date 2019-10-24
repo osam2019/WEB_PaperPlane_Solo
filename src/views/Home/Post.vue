@@ -5,20 +5,31 @@
              v-show="categorySelectVisible"
              v-on:mouseover="toggleCategorySelectVisible()"
              v-on:mouseout="toggleCategorySelectVisible()">
-            <i v-for="item in catIconList"
-               :class="`${item.icon} ${checkActiveCategory(item.category) && 'active'}`"
-               v-on:click="submitToggleCategory(item.category)"></i>
+            <el-tooltip v-for="item in catIconList"
+                        transition="el-fade-in-linear"
+                        class="item" effect="dark"
+                        :content="item.info" placement="top-start">
+                <i :class="`${item.icon} ${checkActiveCategory(item.category) && 'active'}`"
+                   v-on:click="submitToggleCategory(item.category, post.id)"
+                />
+            </el-tooltip>
+
+            <!--            <i v-for="item in catIconList"-->
+            <!--               :class="`${item.icon} ${checkActiveCategory(item.category) && 'active'}`"-->
+            <!--               v-on:click="submitToggleCategory(item.category)"-->
+            <!--               v-on:mouseover.self="categoryIconMouseOver('what')"></i>-->
 
         </div>
         <div class="main-wrapper">
             <div class="category-wrapper"
-                 v-on:mouseover="toggleCategorySelectVisible()"
-                 v-on:mouseout="toggleCategorySelectVisible()">
+                 v-on:mouseover.self="toggleCategorySelectVisible()"
+                 v-on:mouseout.self="toggleCategorySelectVisible()">
                 <i v-for="item in catIconList"
                    :class="`${checkActiveCategory(item.category) && item.icon + ' active'}`"
                    v-on:click="submitToggleCategory(item.category)"></i>
             </div>
             <div class="text-wrapper" v-on:click.self="toggleEditSelect()">
+                <div class="text-info"> 2019년 10월 01일</div>
                 <div class="normal-text"
                      v-show="!editSelect"
                      v-on:click="toggleEditSelect()"
@@ -31,6 +42,7 @@
                             type="textarea"
                             :autosize="{ minRows: 1, maxRows: 10}"
                             v-model="postText"
+                            autosize
                             v-on:keyup.enter="submitEdit()"
                             clearable>
                         {{postText}}
@@ -49,9 +61,21 @@
                  v-show="toolVisible"
                  v-on:mouseover="toggleToolVisible()"
                  v-on:mouseout="toggleToolVisible()">
-                <i class="el-icon-delete"
-                   v-on:click="deletePost"></i>
-                <i class="el-icon-s-promotion"></i>
+                <div class="tooltip-wrapper">
+                    <el-tooltip class="item" effect="dark"
+                                transition="el-fade-in-linear"
+                                content="메모 지우기" placement="right">
+                        <i class="el-icon-delete" v-on:click="deletePost"></i>
+                    </el-tooltip>
+                </div>
+                <div class="tooltip-wrapper">
+                    <el-tooltip class="item" effect="dark"
+                                transition="el-fade-in-linear"
+                                content="종이비행기 보내기" placement="right">
+                        <i class="el-icon-s-promotion" v-on:click="sendPost"></i>
+                    </el-tooltip>
+                </div>
+
             </div>
         </div>
     </div>
@@ -71,26 +95,31 @@
                         icon: "el-icon-question",
                         category: 'cat_random',
                         isActive: false,
+                        info: "떠오른 잡생각",
                     },
                     {
                         icon: "el-icon-s-promotion",
                         category: 'cat_plane',
                         isActive: false,
+                        info: "나누고 싶은 종이비행기",
                     },
                     {
                         icon: "el-icon-s-management",
                         category: 'cat_info',
                         isActive: false,
+                        info: "잊어버리면 안되는 메모 / 정보",
                     },
                     {
                         icon: "el-icon-s-opportunity",
                         category: 'cat_idea',
                         isActive: false,
+                        info: "번뜩이는 아이디어",
                     },
                     {
                         icon: "el-icon-s-order",
                         category: 'cat_todo',
                         isActive: false,
+                        info: "해야 할 일들",
                     }
                 ],
                 postText: '',
@@ -112,8 +141,8 @@
         },
 
         methods: {
-            async updatePost() {
-                await this.$store.dispatch("updatePost", {
+            updatePost() {
+                this.$store.dispatch("updatePost", {
                     ...this.post,
                     "text": this.postText,
                     "category": this.category,
@@ -130,16 +159,26 @@
                 this.editSelect = !(this.editSelect)
             },
             submitEdit() {
+                if (this.postText == '' || null) {
+                    this.$notify.error({
+                        title: '빈칸이에요:(',
+                        message: '메모를 입력해주세요.',
+                        showClose: false,
+                        offset: 100,
+                        duration: 3000,
+                    });
+                    return;
+                }
                 this.editSelect = !(this.editSelect)
                 this.updatePost()
             },
-            submitToggleCategory(cat) {
+            submitToggleCategory(cat, id) {
                 if (this.category.indexOf(cat) > -1) {
                     this.category = this.category.filter(item => item !== cat)
                 } else {
                     this.category.push(cat)
                 }
-                this.updatePost()
+                this.updatePost(id);
             },
             checkActiveCategory(cat) {
                 if (this.category.indexOf(cat) > -1) {
@@ -148,6 +187,25 @@
             },
             async deletePost() {
                 await this.$store.dispatch("deletePost", this.postId);
+                this.$notify.warning({
+                    title: '메모삭제',
+                    message: '메모가 성공적으로 지워졌습니다',
+                    showClose: false,
+                    offset: 100,
+                    duration: 3000,
+                });
+            },
+            sendPost() {
+                this.$notify.success({
+                    title: '종이비행기 전송',
+                    message: '종이비행기가 전송되었습니다.',
+                    showClose: false,
+                    offset: 100,
+                    duration: 3000,
+                });
+            },
+            categoryIconMouseOver(msg) {
+                // this.$message('This is a message.');
             },
         }
     }
@@ -171,17 +229,26 @@
         border-radius: 0 0.4rem 0.4rem 0;
         top: 0;
         left: 0;
-        margin-right: -2.2rem;
+        padding-right: 0.5rem;
+        margin-right: -2.3rem;
+        /*margin-left: -10rem;*/
     }
 
-    .util-tool i {
-        margin: 0.3rem;
-        color: rgb(190, 190, 190);
+    .util-tool .tooltip-wrapper {
+        display: flex;
+        flex-direction: column;
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .util-tool .tooltip-wrapper i {
+        margin: 0 auto;
+        color: grey;
         font-size: 0.8rem;
     }
 
-    .util-tool i:first-child {
-        margin-top: 0.6rem;
+    .util-tool .tooltip-wrapper i:first-child {
+        margin-top: 1.2rem;
     }
 
     .category-select-tool {
@@ -199,7 +266,7 @@
     .category-select-tool i {
         margin: 0.5rem 0.2rem 0.2rem 0.2rem;
         color: rgb(190, 190, 190);
-        font-size: 1rem;
+        font-size: 1.3rem;
         width: 1.5rem;
         height: 1.5rem;
     }
@@ -227,12 +294,25 @@
     }
 
     .main-wrapper .text-wrapper {
-        text-align: left;
+        /*text-align: left;*/
+        font-size: 12px;
+        font-family: 'Noto Serif KR', serif;
         display: table;
         width: 100%;
         min-height: 2rem;
         padding: 15px;
         margin: 0 auto;
+        margin-bottom: 0.5rem;
+    }
+
+    .main-wrapper .text-wrapper .text-info {
+        display: table-caption;
+        text-align: right;
+        vertical-align: middle;
+        opacity: 0.3;
+        font-size: 5px;
+        margin-top: 0.5rem;
+        margin-bottom: -1rem;
     }
 
     .main-wrapper .text-wrapper .normal-text {
@@ -256,7 +336,7 @@
 
     .main-wrapper .category-wrapper {
         float: left;
-        width: 2rem;
+        width: 3rem;
         display: flex;
         justify-content: center;
         flex-flow: column wrap;
@@ -269,7 +349,7 @@
     .main-wrapper .category-wrapper i.active {
         color: rgb(41, 128, 185);
         margin-top: 0.4rem;
-        font-size: 0.3rem;
+        font-size: 0.8rem;
     }
 
 

@@ -39,7 +39,14 @@
         methods: {
             async addItem() {
                 if (this.inputText == '' || null) {
-                    return;
+                    this.$notify.error({
+                        title: '빈칸이에요:(',
+                        message: '메모를 입력해주세요.',
+                        showClose: false,
+                        offset: 100,
+                        duration: 3000,
+                    });
+                    return
                 }
                 await this.$store.dispatch("addItem",
                     {
@@ -54,6 +61,13 @@
                 console.log(this.inputText + this.currentId);
                 this.currentId++;
                 this.inputText = '';
+                this.$notify.success({
+                    title: '메모등록',
+                    message: '메모가 성공적으로 등록되었습니다.',
+                    showClose: false,
+                    offset: 100,
+                    duration: 3000,
+                });
             }
         }
     }

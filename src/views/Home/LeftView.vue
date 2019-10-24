@@ -97,7 +97,6 @@
     }
 
     .nav-wrapper i.active {
-        /*color: rgb(41, 128, 185);*/
         opacity: 1;
     }
 
@@ -110,8 +109,7 @@
         height: 100%;
         padding-top: 120px;
 
-        background-color: rgba(1, 1, 1, 0.5 );
-
+        /*background-color: rgba(1, 1, 1, 0.2);*/
         display: flex;
         justify-content: center;
     }

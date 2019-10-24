@@ -7,10 +7,14 @@ export default {
         cat_info: [],
         cat_idea: [],
         cat_todo: [],
+        items:[]
     },
     mutations: {
         updateCategory(state, category, id) {
             state[category].push(id)
+        },
+        updateItems(state,items){
+            state.items=items;
         }
     },
     getters:{
@@ -18,10 +22,13 @@ export default {
             return state.cat_random;
         }
     },
-    actions: {
+    /*actions: {
         async loadCategories({commit}) {
             console.log("loadCategories")
             let result = await axios.get("./mockup/posts.json");
+
+            commit.updateItems(result.data.items);
+
             result.data.items.map((item) => {
                 if (item.category.indexOf("cat_random")) commit("updateCategory", "cat_random", item.id);
                 if (item.category.indexOf("cat_plane")) commit("updateCategory", "cat_plane", item.id);
@@ -30,5 +37,5 @@ export default {
                 if (item.category.indexOf("cat_todo")) commit("updateCategory", "cat_todo", item.id);
             })
         }
-    }
+    }*/
 }

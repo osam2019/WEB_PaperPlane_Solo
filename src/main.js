@@ -10,7 +10,7 @@ import VCalendar from 'v-calendar';
 import router from './router'
 import store from './store'
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 Vue.use(VCalendar);
 Vue.use(VCalendar, {

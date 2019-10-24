@@ -7,8 +7,8 @@
 
 <style>
 
-    @import url(//fonts.googleapis.com/earlyaccess/kopubbatang.css);
-
+    @import url('https://fonts.googleapis.com/css?family=Noto+Serif+KR:200,300,400,500,600,700,900&display=swap&subset=korean');
+    @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding:400,700&display=swap&subset=korean');
 
     body, html {
         padding: 0;
@@ -28,9 +28,10 @@
 
     #app {
         /*font-family: 'Avenir', Helvetica, Arial, sans-serif;*/
-        font-family: 'Jeju Gothic', sans-serif;
-        font-size: 12px;
-        line-height:1.8em;
+        /*font-family: 'Noto Serif KR', serif;*/
+        font-family: 'Nanum Gothic Coding', monospace;
+        font-size: 15px;
+        line-height: 1.8em;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         text-align: center;

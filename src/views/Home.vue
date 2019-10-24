@@ -43,7 +43,7 @@
 
     .grid .grid-child {
         min-height: 100vh;
-        border: 0.1px solid red;
+        /*border: 0.1px solid red;*/
         margin-top: 100px;
         width: 100%;
         height: 100vh;

@@ -1,0 +1,54 @@
+{
+  "unreadPlanes": [
+    {
+      "id": 1,
+      "author": "홍길동",
+      "receiver": "이재영",
+      "category": [
+        "cat_random",
+        "cat_plane"
+      ],
+      "dateCreated": "2015-09-20",
+      "dateModified": [],
+      "text": "영화 봐야하는 데 요즘 볼만한 거 없나"
+    }
+  ],
+  "receivedPlanes": [
+    {
+      "id": 1,
+      "author": "홍길동",
+      "receiver": "이재영",
+      "category": [
+        "cat_random",
+        "cat_plane"
+      ],
+      "dateCreated": "2015-09-20",
+      "dateModified": [],
+      "text": "영화 봐야하는 데 요즘 볼만한 거 없나"
+    },
+    {
+      "id": 2,
+      "author": "성춘향",
+      "category": [
+        "cat_random",
+        "cat_plane"
+      ],
+      "dateCreated": "2015-09-20",
+      "dateModified": [],
+      "text": "배고파"
+    }
+  ],
+  "sentPlanes": [
+    {
+      "id": 1,
+      "author": "이재영",
+      "category": [
+        "cat_random",
+        "cat_plane"
+      ],
+      "dateCreated": "2015-09-20",
+      "dateModified": [],
+      "text": "영화 봐야하는 데 요즘 볼만한 거 없나"
+    }
+  ]
+}
