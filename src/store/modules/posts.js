@@ -44,7 +44,8 @@ export default {
     },
     getters: {
         getPosts(state) {
-            return state.items.sort((a, b) => a.id < b.id);
+            // return state.items.sort((a, b) => a.id < b.id);
+            return state.items;
         },
         getRandomPosts(state) {
             return state.items.filter((item) => {

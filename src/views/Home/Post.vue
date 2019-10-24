@@ -29,7 +29,7 @@
                    v-on:click="submitToggleCategory(item.category)"></i>
             </div>
             <div class="text-wrapper" v-on:click.self="toggleEditSelect()">
-                <div class="text-info"> 2019년 10월 01일</div>
+<!--                <div class="text-info"> 2019년 10월 01일</div>-->
                 <div class="normal-text"
                      v-show="!editSelect"
                      v-on:click="toggleEditSelect()"

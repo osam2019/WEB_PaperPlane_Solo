@@ -18,7 +18,7 @@
     export default {
         data() {
             return {
-                planesViewVisible: true,
+                planesViewVisible: false,
             }
         },
         methods: {

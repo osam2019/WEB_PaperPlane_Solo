@@ -6,7 +6,7 @@
                 <span><i class="el-icon-files"></i>전체보기</span></div>
             <div :class="'category-row ' + `${activateCategoryIcon('cat_random') && 'active'}`"
                  v-on:click="showCategory('cat_random')">
-                <span><i class="el-icon-question"></i>잡생각</span></div>
+                <span><i class="el-icon-question"></i>정리 안된 생각</span></div>
             <div :class="'category-row ' + `${activateCategoryIcon('cat_plane') && 'active'}`"
                  v-on:click="showCategory('cat_plane')">
                 <span><i class="el-icon-s-promotion"/> 종이 비행기</span></div>

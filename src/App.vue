@@ -28,8 +28,8 @@
 
     #app {
         /*font-family: 'Avenir', Helvetica, Arial, sans-serif;*/
-        /*font-family: 'Noto Serif KR', serif;*/
-        font-family: 'Nanum Gothic Coding', monospace;
+        font-family: 'Noto Serif KR', serif;
+        /*font-family: 'Nanum Gothic Coding', monospace;*/
         font-size: 15px;
         line-height: 1.8em;
         -webkit-font-smoothing: antialiased;

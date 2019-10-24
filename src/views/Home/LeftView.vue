@@ -20,8 +20,8 @@
     export default {
         data() {
             return {
-                wrapperVisible: true,
-                calendarVisible: true,
+                wrapperVisible: false,
+                calendarVisible: false,
                 categoryVisible: false,
             }
         },
