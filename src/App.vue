@@ -40,7 +40,7 @@
     }
 
     #nav {
-        padding: 30px;
+        padding: 29px;
     }
 
     #nav a {
